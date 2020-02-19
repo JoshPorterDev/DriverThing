@@ -1,0 +1,31 @@
+using System;
+using static System.Console;
+
+class Driver {
+  public string Name;
+  public int Rank;
+  public int CarNo;
+  public int NumRaces;
+  public decimal TotalSpent;
+  
+  // Constructor with default values
+  public Driver(string name, int rank = 0, int carno = 0, int numraces = 0, decimal totalspent = 0)
+  {
+    Name = name;
+    Rank = rank;
+    CarNo = carno;
+    NumRaces = numraces;
+    TotalSpent = totalspent;
+  }
+  
+  public override string ToString()
+    {
+      return string.Format($"Driver Stats\nDriver Name{Name, 24}\nDriver Rank{Rank, 24}\nDriver Car{CarNo, 25}\nNum Races{NumRaces, 26}\n$$$ Spent{TotalSpent.ToString("C"), 26}");
+    }
+    
+  public int CalcAvgCost()
+  {
+    int totalspent = Decimal.ToInt32(TotalSpent);
+    return totalspent / NumRaces;
+  }
+}
